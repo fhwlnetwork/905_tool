@@ -1,6 +1,6 @@
 <template>
 	<section class="jumbotron">
-		<h3 class="jumbotron-heading">Search Github Users</h3>
+		<h3 class="jumbotron-heading">905协议解析</h3>
 		<div>
 			<input type="text" placeholder="请输入你的任务名称，按回车键确认" v-model="datamessage" @keyup.enter="increment(datamessage)"/>
 		</div>
