@@ -6,11 +6,19 @@ import App from './App.vue'
 import vueResource from 'vue-resource'
 //引入store
 import store from './store'
+//时间格式化
+import moment from 'moment' 
+Vue.prototype.$config = moment;
+//引入ui框架
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
+Vue.use(ElementUI)
 //关闭Vue的生产提示
 Vue.config.productionTip = false
 //使用插件
 Vue.use(vueResource)
+
 
 //创建vm
 new Vue({

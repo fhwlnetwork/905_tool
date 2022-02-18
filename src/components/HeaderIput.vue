@@ -1,31 +1,34 @@
 <template>
-	<section class="jumbotron">
-		<h3 class="jumbotron-heading">905协议解析</h3>
-		<div>
-			<input type="text" placeholder="请输入你的任务名称，按回车键确认" v-model="datamessage" @keyup.enter="increment(datamessage)"/>
-		</div>
-	</section>
+  <section class="jumbotron">
+    <h3 class="jumbotron-heading">905协议解析</h3>
+    <div>
+      <el-input
+        placeholder="输入你的码流，按回车键确认"
+        v-model="datamessage"
+        clearable
+        @keyup.enter="increment(datamessage)"
+      >
+      </el-input>
+    </div>
+  </section>
 </template>
 
 <script>
-	import {mapState,mapGetters,mapMutations,mapActions} from 'vuex'
-	export default {
-		name:'HeaderInput',
-		data() {
-			return {
-				datamessage:'7e0b0500831035001112234e230000060000000148011462b1044c84870000002201261511130000060000000328011461e4044c84690019432201261500105874f2805874f2cd01000000000000000000000000303030303030303030303030303030303337303638353139393630353132323631390022012615101510000000000000000000000010000000a3b1003e7e'
-			}
-		},
-		//测试,记得删除
-		created(){
-		this.$store.dispatch('getmessgaeaAbout/Change_message',this.datamessage)
-		},
-		methods: {
-			
-		
-			...mapActions('getmessgaeaAbout',{increment:'Change_message'}),
-			
-			
-		},
-	}
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+export default {
+  name: "HeaderInput",
+  data() {
+    return {
+      datamessage:
+        "7e0b0500831035000012344e310000040000000148011462b7044c83b70000002202181705000000040000000328011462a0044c83c100064422021817025958a5108058a5114001000000000000594c54343434303030303030303030303030303030303133353637383930303039303939303039000022021817021703000000000000000000000001000000a3c200357e",
+    };
+  },
+  //测试,记得删除
+  created() {
+    this.$store.dispatch("getmessgaeaAbout/Change_message", this.datamessage);
+  },
+  methods: {
+    ...mapActions("getmessgaeaAbout", { increment: "Change_message" }),
+  },
+};
 </script>

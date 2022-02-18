@@ -15,17 +15,18 @@ export default {
         //     console.log(state.initmessage);
         // },
         getmessage(state,value){
-            console.log('2value',state);
+          
             //设备id
             state.machine=value.substr(10,12)
             //时间
-            state.firsttime=value.substr(238,10)
+            state.firsttime=value.substr(238,10);
+        
             state.secondtime=value.substr(248,4)
             //行程 xxxxx.xkm
             state.count_kilo=value.substr(252,6)/10
             //空驶里程xxxxx.xkm
             state.Air_mileage=value.substr(258,4)/10
-            console.log(state)
+        
             //附加费
             state.extra_charge=value.substr(262,6)
             //等待计时时间
@@ -37,7 +38,7 @@ export default {
         getBlength(state,[value,count]){
             console.log('我被调用了',);
             var len=value.length;
-            console.log(len);
+           
             var n=0;
             for(var i=0;i<len;i++){
                 n+=value.charCodeAt(i) > 255 ? 2 : 1;

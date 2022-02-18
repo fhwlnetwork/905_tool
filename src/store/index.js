@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import countOptions from './count'
 import personOptions from './person'
 import  getmessgaeOptions from './getmessgae'
+import  dateChangeOptions from './date'
 //应用Vuex插件
 Vue.use(Vuex)
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
 	modules:{
 		countAbout:countOptions,
 		personAbout:personOptions,
-		getmessgaeaAbout:getmessgaeOptions
+		getmessgaeaAbout:getmessgaeOptions,
+		dateChangeAbout:dateChangeOptions
 	}
 })
