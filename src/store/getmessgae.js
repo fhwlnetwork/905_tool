@@ -20,7 +20,7 @@ export default {
             state.machine=value.substr(10,12)
             //时间
             state.firsttime=value.substr(238,10);
-        
+            
             state.secondtime=value.substr(248,4)
             //行程 xxxxx.xkm
             state.count_kilo=value.substr(252,6)/10
@@ -34,21 +34,10 @@ export default {
             //交易金额
             state.trading_volume=value.substr(272,6)/10
         },
-        //字节截取长度
-        getBlength(state,[value,count]){
-            console.log('我被调用了',);
-            var len=value.length;
-           
-            var n=0;
-            for(var i=0;i<len;i++){
-                n+=value.charCodeAt(i) > 255 ? 2 : 1;
-                if(n >=count){
-                    return state.len =i+1;
-                }
-            }
-            return state.le=n;
-            
-        }
+        designDemo(state,value){
+			state.top=value
+			console.log('aaa',value,state.top);
+		}
 
     },
     state: {
@@ -67,6 +56,7 @@ export default {
         //初始化长度
         len:0,
         count:0,
+        top:''
     },
     getters: {
 
