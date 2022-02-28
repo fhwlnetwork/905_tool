@@ -19,13 +19,13 @@ export default {
   name: "HeaderInput",
   data() {
     return {
-      datamessage: "7e8bd200301034555566660007313233313234323100000000000000000000000000620210345555666622021115015200010a00000000000003000002777e",
+      datamessage: "输入码流",
     };
   },
   //测试,记得删除
-  created() {
-    this.$store.dispatch("getmessgaeaAbout/Change_message", this.datamessage);
-  },
+  // created() {
+  //   this.$store.dispatch("getmessgaeaAbout/Change_message", this.datamessage);
+  // },
   methods: {
     add() {
       let top = this.datamessage.substr(0, 6);
@@ -55,3 +55,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.el-input{
+  width: 80%;
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-col :span="24" v-if="top == '7e0b05'">
+    <el-col :span="24" v-if="top === '7e0b05'">
       <el-col :span="12"
         ><el-card class="box-card" style="float: left; margin-top: 50px">
           <div class="text item">
@@ -43,32 +43,38 @@
         </el-card>
       </el-col>
     </el-col>
-    <el-col :span="24">
-      <el-col :span="12"
-        ><el-card class="box-card" style="float: left; margin-top: 50px">
+    <el-col :span="24" v-else-if="top === '7e8bd2'">
+      <el-col :span="12">
+        <el-card class="box-card" style="float: left; margin-top: 50px">
           <div class="text item">
-             {{ "设备id: " + machine }}
-            
+            {{ "设备id: " + machine }}
           </div>
           <div class="text item">
-           {{ "比对结果: " + comparison }}
+            {{ "比对结果: " + comparison }}
           </div>
           <div class="text item">
-            {{ "下车时间::" + second_time }}
+            {{ "业务类型::" + type_service }}
           </div>
-        </el-card></el-col
-      >
+          <div class="text item">
+            {{ "相似度:" + similate }}
+          </div>
+          <div class="text item">
+            {{ "通道号:" + chanel }}
+          </div>
+        </el-card>
+        </el-col>
     </el-col>
+    <el-col v-else> 输入信息回车后解析</el-col>
   </div>
 </template>
 
 <script>
 export default {
-  data(){
+  data() {
     return {
-      comparison:false,
-
-    }
+      comparison: "等待输入",
+      type_service: "",
+    };
   },
   computed: {
     machine() {
@@ -82,11 +88,17 @@ export default {
       return this.$store.state.dateChangeAbout.second_time;
     },
     top() {
-      this.face()
+      this.face();
       return this.$store.state.getmessgaeaAbout.top;
     },
-
-    
+    //相似度 范围0---100
+    similate() {
+      return this.$store.state.BodyFaceAbout.similate;
+    },
+    //通道号
+    chanel() {
+      return this.$store.state.BodyFaceAbout.chanel;
+    },
   },
 
   methods: {
@@ -100,20 +112,23 @@ export default {
       ]);
     },
     //人脸比对
-    face(){
-      
-     let comparisons=this.$store.state.BodyFaceAbout.comparison
-      if(comparisons=='00'){
-         this.comparison =true
-      }else{
-this.comparison = false
+    face() {
+      //比对结果 0:比对成功，1比对失败
+      let comparisons = this.$store.state.BodyFaceAbout.comparison;
+      if (comparisons == "00") {
+        this.comparison = true;
+      } else {
+        this.comparison = false;
       }
-     let type_service=this.$store.state.BodyFaceAbout.type_service
-     if(comparisons=='00'){
-
-     }else if(comparisons=='01'){
-
-     }
+      //业务类型 0:签到，1：动态查岗
+      let type_service = this.$store.state.BodyFaceAbout.type_service;
+      if (comparisons == "00") {
+        this.type_service = "签到";
+      } else if (comparisons == "01") {
+        this.type_service = "动态查岗";
+      } else {
+        this.type_service = "未知，参考协议";
+      }
     },
   },
 };
@@ -122,6 +137,7 @@ this.comparison = false
 <style>
 .text {
   font-size: 14px;
+  text-align: left;
 }
 
 .item {

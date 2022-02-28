@@ -3,10 +3,11 @@
     <img alt="Vue logo" src="./assets/logo.png" />
 
     <el-row>
-      <el-col :span="24"
-        ><el-row>
-          <el-col :span="24"> <header-iput /></el-col> </el-row
-      ></el-col>
+      <el-col :span="24">
+        <el-row>
+          <el-col :span="24"> <header-iput /></el-col> 
+        </el-row>
+      </el-col>
       <showmessage />
     </el-row>
   </div>
@@ -62,4 +63,8 @@ export default {
   padding: 10px 0;
   background-color: #f9fafc;
 }
+.el-input{
+  width: 80%;
+}
+
 </style>
