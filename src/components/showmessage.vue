@@ -134,7 +134,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .text {
   font-size: 14px;
   text-align: left;
@@ -142,6 +142,10 @@ export default {
 
 .item {
   padding: 18px 0;
+}
+.el-col-24{
+
+  margin-left: 10%;
 }
 
 .box-card {
